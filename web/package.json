@@ -3,6 +3,7 @@
     "version": "2.5.9",
     "private": true,
     "scripts": {
+        "dev": "vite --host --mode development",
         "serve": "node openDocument.js && vite --host --mode development",
         "build": "vite build --mode production",
         "limit-build": "npm install increase-memory-limit-fixbug cross-env -g && npm run fix-memory-limit && node ./limit && npm run build",
@@ -37,8 +38,8 @@
         "@babel/eslint-parser": "^7.22.9",
         "@vitejs/plugin-legacy": "^7.2.1",
         "@vitejs/plugin-vue": "^4.2.3",
-        "@vue/cli-plugin-babel": "^3.12.1",
-        "@vue/cli-plugin-eslint": "^4.5.19",
+        "@vue/cli-plugin-babel": "^5.0.9",
+        "@vue/cli-plugin-eslint": "^5.0.9",
         "@vue/cli-plugin-router": "~5.0.8",
         "@vue/cli-plugin-vuex": "~5.0.8",
         "@vue/cli-service": "~5.0.8",
