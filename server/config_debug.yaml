@@ -50,6 +50,36 @@ cors:
           expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
           allow-credentials: true
 db-list:
+    - type: "mysql"
+      alias-name: "loomi_admin"
+      prefix: ""
+      port: "3306"
+      config: "charset=utf8mb4&parseTime=True&loc=Local"
+      db-name: "loomi_admin"
+      username: "root"
+      password: "Lgy@0424"
+      path: "localhost"
+      log-mode: error
+      max-idle-conns: 10
+      max-open-conns: 100
+      singular: false
+      log-zap: false
+      disable: false
+    - type: "mysql"
+      alias-name: "loomi"
+      prefix: ""
+      port: "3306"
+      config: "charset=utf8mb4&parseTime=True&loc=Local"
+      db-name: "loomi"
+      username: "root"
+      password: "Lgy@0424"
+      path: "localhost"
+      log-mode: error
+      max-idle-conns: 10
+      max-open-conns: 100
+      singular: false
+      log-zap: false
+      disable: false
     - type: ""
       alias-name: ""
       prefix: ""
