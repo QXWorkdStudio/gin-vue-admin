@@ -84,7 +84,7 @@
                   @click="submitForm"
                 >登 录</el-button>
               </el-form-item>
-              <el-form-item class="mb-6">
+              <!-- <el-form-item class="mb-6">
                 <el-button
                   class="shadow shadow-blue-600 h-11 w-full"
                   type="primary"
@@ -92,7 +92,7 @@
                   @click="checkInit"
                 >前往初始化</el-button>
 
-              </el-form-item>
+              </el-form-item> -->
             </el-form>
           </div>
         </div>
