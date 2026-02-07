@@ -1,8 +1,14 @@
 // 自动生成模板ExchangePointsOrder
 package loomiadmin
 
-import (
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
+import "github.com/flipped-aurora/gin-vue-admin/server/global"
+
+const (
+	ExchangeStatusPending     = 1  // 待处理
+	ExchangeStatusWaitAudit   = 2  // 待打款
+	ExchangeStatusFail        = 10 // 打款失败
+	ExchangeStatusAuditReject = 11 // 后台拒绝
+	ExchangeStatusSuccess     = 21 // 成功
 )
 
 // exchangePointsOrder表 结构体  ExchangePointsOrder
@@ -22,8 +28,9 @@ type ExchangePointsOrder struct {
 	OrderNo       string  `json:"orderNo" form:"orderNo" gorm:"column:order_no;comment:商户订单号;size:64;"`                                     //商户订单号
 	PointsAfter   *int    `json:"pointsAfter" form:"pointsAfter" gorm:"column:points_after;comment:修改后积分;size:10;"`                         //修改后积分
 	PointsBefore  *int    `json:"pointsBefore" form:"pointsBefore" gorm:"column:points_before;comment:修改前积分余额;size:10;"`                    //修改前积分余额
+	PointsFlowId  int     `json:"pointsFlowId" form:"pointsFlowId" gorm:"column:points_flow_id;comment:积分流水id;size:19;"`                    //积分流水id
 	ProductId     *int    `json:"productId" form:"productId" gorm:"column:product_id;comment:产品id;size:10;"`                                //产品id
-	Status        *int    `json:"status" form:"status" gorm:"column:status;comment:对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功;size:10;"` //对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功
+	Status        int     `json:"status" form:"status" gorm:"column:status;comment:对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功;size:10;"` //对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功
 	SubChannel    string  `json:"subChannel" form:"subChannel" gorm:"column:sub_channel;comment:子渠道; bank_code;size:50;"`                   //子渠道; bank_code
 	Uid           string  `json:"uid" form:"uid" gorm:"column:uid;comment:用户uid;size:50;"`                                                  //用户uid
 }

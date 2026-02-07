@@ -614,9 +614,6 @@ definitions:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       customerName:
         description: 客户名
         type: string
@@ -633,9 +630,6 @@ definitions:
       sysUserId:
         description: 管理ID
         type: integer
-      updatedAt:
-        description: 更新时间
-        type: string
     type: object
   example.ExaFile:
     properties:
@@ -644,9 +638,6 @@ definitions:
         type: integer
       chunkTotal:
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       exaFileChunk:
         items:
           $ref: '#/definitions/example.ExaFileChunk'
@@ -659,26 +650,17 @@ definitions:
         type: string
       isFinish:
         type: boolean
-      updatedAt:
-        description: 更新时间
-        type: string
     type: object
   example.ExaFileChunk:
     properties:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       exaFileID:
         type: integer
       fileChunkNumber:
         type: integer
       fileChunkPath:
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
     type: object
   example.ExaFileUploadAndDownload:
@@ -686,9 +668,6 @@ definitions:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       key:
         description: 编号
         type: string
@@ -697,9 +676,6 @@ definitions:
         type: string
       tag:
         description: 文件标签
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
       url:
         description: 文件地址
@@ -727,6 +703,129 @@ definitions:
         type: string
       to:
         description: 收件人:多个以英文逗号分隔 例：a@qq.com b@qq.com 正式开发中请把此项目作为参数使用
+        type: string
+    type: object
+  loomiadmin.AnchorPointsFlows:
+    properties:
+      ID:
+        description: 主键ID
+        type: integer
+      anchorUid:
+        description: anchorUid字段
+        type: string
+      channelId:
+        description: channelId字段
+        type: string
+      coin:
+        description: 用户消费金币
+        type: integer
+      eventId:
+        description: eventId字段
+        type: string
+      ext:
+        description: 额外字段
+        type: string
+      guildId:
+        description: guildId字段
+        type: string
+      num:
+        description: num字段
+        type: integer
+      payUid:
+        description: payUid字段
+        type: string
+      pointsAmount:
+        description: 积分收益数
+        type: integer
+      pointsChg:
+        description: pointsChg字段
+        type: integer
+      pointsChgAfter:
+        description: pointsChgAfter字段
+        type: integer
+      pointsChgBefore:
+        description: pointsChgBefore字段
+        type: integer
+      pointsFlowId:
+        description: 积分流水id
+        type: integer
+      ratio:
+        description: 兑换比例 10=10%
+        type: integer
+      source:
+        description: source字段
+        type: string
+      sourceType:
+        description: sourceType字段
+        type: string
+      status:
+        description: status字段
+        type: integer
+      subSource:
+        description: subSource字段
+        type: string
+    type: object
+  loomiadmin.ExchangePointsOrder:
+    properties:
+      ID:
+        description: 主键ID
+        type: integer
+      accountName:
+        description: 用户名
+        type: string
+      accountNumber:
+        description: 银行账号、钱包、其他账户标识
+        type: string
+      addPoints:
+        description: 变动的积分
+        type: integer
+      amount:
+        description: 兑换金额
+        type: string
+      countryName:
+        description: 国家
+        type: string
+      currency:
+        description: 币种
+        type: string
+      desc:
+        description: 描述
+        type: string
+      extInfo:
+        description: 额外信息汇总；
+        type: string
+      mainChannel:
+        description: 主渠道
+        type: string
+      merchantId:
+        description: 商户id
+        type: string
+      operatorId:
+        description: 审核人id
+        type: integer
+      orderNo:
+        description: 商户订单号
+        type: string
+      pointsAfter:
+        description: 修改后积分
+        type: integer
+      pointsBefore:
+        description: 修改前积分余额
+        type: integer
+      pointsFlowId:
+        description: 积分流水id
+        type: integer
+      productId:
+        description: 产品id
+        type: integer
+      status:
+        description: 对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功
+        type: integer
+      subChannel:
+        description: 子渠道; bank_code
+        type: string
+      uid:
+        description: 用户uid
         type: string
     type: object
   request.AddMenuAuthorityInfo:
@@ -888,9 +987,6 @@ definitions:
       apiGroup:
         description: api组
         type: string
-      createdAt:
-        description: 创建时间
-        type: string
       desc:
         description: 排序方式:升序false(默认)|降序true
         type: boolean
@@ -914,9 +1010,6 @@ definitions:
         type: integer
       path:
         description: api路径
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
     type: object
   request.SetUserAuth:
@@ -1207,9 +1300,6 @@ definitions:
       apiGroup:
         description: api组
         type: string
-      createdAt:
-        description: 创建时间
-        type: string
       description:
         description: api中文描述
         type: string
@@ -1218,9 +1308,6 @@ definitions:
         type: string
       path:
         description: api路径
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
     type: object
   system.SysAuthority:
@@ -1263,17 +1350,11 @@ definitions:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       desc:
         type: string
       label:
         type: string
       packageName:
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
     type: object
   system.SysBaseMenu:
@@ -1291,9 +1372,6 @@ definitions:
         type: array
       component:
         description: 对应前端文件路径
-        type: string
-      createdAt:
-        description: 创建时间
         type: string
       hidden:
         description: 是否在列表隐藏
@@ -1322,36 +1400,24 @@ definitions:
       sort:
         description: 排序标记
         type: integer
-      updatedAt:
-        description: 更新时间
-        type: string
     type: object
   system.SysBaseMenuBtn:
     properties:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       desc:
         type: string
       name:
         type: string
       sysBaseMenuID:
         type: integer
-      updatedAt:
-        description: 更新时间
-        type: string
     type: object
   system.SysBaseMenuParameter:
     properties:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       key:
         description: 地址栏携带参数的key
         type: string
@@ -1359,9 +1425,6 @@ definitions:
         type: integer
       type:
         description: 地址栏携带参数为params还是query
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
       value:
         description: 地址栏携带参数的值
@@ -1372,9 +1435,6 @@ definitions:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       desc:
         description: 描述
         type: string
@@ -1391,18 +1451,12 @@ definitions:
       type:
         description: 字典名（英）
         type: string
-      updatedAt:
-        description: 更新时间
-        type: string
     type: object
   system.SysDictionaryDetail:
     properties:
       ID:
         description: 主键ID
         type: integer
-      createdAt:
-        description: 创建时间
-        type: string
       extend:
         description: 扩展值
         type: string
@@ -1418,12 +1472,27 @@ definitions:
       sysDictionaryID:
         description: 关联标记
         type: integer
-      updatedAt:
-        description: 更新时间
-        type: string
       value:
         description: 字典值
         type: integer
+    type: object
+  system.SysExportTemplate:
+    properties:
+      ID:
+        description: 主键ID
+        type: integer
+      name:
+        description: 模板名称
+        type: string
+      tableName:
+        description: 表名称
+        type: string
+      templateID:
+        description: 模板标识
+        type: string
+      templateInfo:
+        description: 模板信息
+        type: string
     type: object
   system.SysMenu:
     properties:
@@ -1444,9 +1513,6 @@ definitions:
         type: array
       component:
         description: 对应前端文件路径
-        type: string
-      createdAt:
-        description: 创建时间
         type: string
       hidden:
         description: 是否在列表隐藏
@@ -1477,9 +1543,6 @@ definitions:
       sort:
         description: 排序标记
         type: integer
-      updatedAt:
-        description: 更新时间
-        type: string
     type: object
   system.SysOperationRecord:
     properties:
@@ -1491,9 +1554,6 @@ definitions:
         type: string
       body:
         description: 请求Body
-        type: string
-      createdAt:
-        description: 创建时间
         type: string
       error_message:
         description: 错误信息
@@ -1516,9 +1576,6 @@ definitions:
       status:
         description: 请求状态
         type: integer
-      updatedAt:
-        description: 更新时间
-        type: string
       user:
         $ref: '#/definitions/system.SysUser'
       user_id:
@@ -1545,9 +1602,6 @@ definitions:
       baseColor:
         description: 基础颜色
         type: string
-      createdAt:
-        description: 创建时间
-        type: string
       email:
         description: 用户邮箱
         type: string
@@ -1565,9 +1619,6 @@ definitions:
         type: string
       sideMode:
         description: 用户侧边主题
-        type: string
-      updatedAt:
-        description: 更新时间
         type: string
       userName:
         description: 用户登录名
@@ -1587,6 +1638,302 @@ info:
   title: Gin-Vue-Admin Swagger API接口文档
   version: v2.5.9
 paths:
+  /anchorPointsFlows/createAnchorPointsFlows:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建anchorPointsFlows表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/loomiadmin.AnchorPointsFlows'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"创建成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 创建anchorPointsFlows表
+      tags:
+      - AnchorPointsFlows
+  /anchorPointsFlows/deleteAnchorPointsFlows:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 删除anchorPointsFlows表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/loomiadmin.AnchorPointsFlows'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 删除anchorPointsFlows表
+      tags:
+      - AnchorPointsFlows
+  /anchorPointsFlows/deleteAnchorPointsFlowsByIds:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 批量删除anchorPointsFlows表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"批量删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 批量删除anchorPointsFlows表
+      tags:
+      - AnchorPointsFlows
+  /anchorPointsFlows/findAnchorPointsFlows:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 主键ID
+        in: query
+        name: ID
+        type: integer
+      - description: anchorUid字段
+        in: query
+        name: anchorUid
+        type: string
+      - description: channelId字段
+        in: query
+        name: channelId
+        type: string
+      - description: 用户消费金币
+        in: query
+        name: coin
+        type: integer
+      - description: eventId字段
+        in: query
+        name: eventId
+        type: string
+      - description: 额外字段
+        in: query
+        name: ext
+        type: string
+      - description: guildId字段
+        in: query
+        name: guildId
+        type: string
+      - description: num字段
+        in: query
+        name: num
+        type: integer
+      - description: payUid字段
+        in: query
+        name: payUid
+        type: string
+      - description: 积分收益数
+        in: query
+        name: pointsAmount
+        type: integer
+      - description: pointsChg字段
+        in: query
+        name: pointsChg
+        type: integer
+      - description: pointsChgAfter字段
+        in: query
+        name: pointsChgAfter
+        type: integer
+      - description: pointsChgBefore字段
+        in: query
+        name: pointsChgBefore
+        type: integer
+      - description: 积分流水id
+        in: query
+        name: pointsFlowId
+        type: integer
+      - description: 兑换比例 10=10%
+        in: query
+        name: ratio
+        type: integer
+      - description: source字段
+        in: query
+        name: source
+        type: string
+      - description: sourceType字段
+        in: query
+        name: sourceType
+        type: string
+      - description: status字段
+        in: query
+        name: status
+        type: integer
+      - description: subSource字段
+        in: query
+        name: subSource
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"查询成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用id查询anchorPointsFlows表
+      tags:
+      - AnchorPointsFlows
+  /anchorPointsFlows/getAnchorPointsFlowsList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 主键ID
+        in: query
+        name: ID
+        type: integer
+      - description: anchorUid字段
+        in: query
+        name: anchorUid
+        type: string
+      - description: channelId字段
+        in: query
+        name: channelId
+        type: string
+      - description: 用户消费金币
+        in: query
+        name: coin
+        type: integer
+      - in: query
+        name: endCreatedAt
+        type: string
+      - description: eventId字段
+        in: query
+        name: eventId
+        type: string
+      - description: 额外字段
+        in: query
+        name: ext
+        type: string
+      - description: guildId字段
+        in: query
+        name: guildId
+        type: string
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      - description: num字段
+        in: query
+        name: num
+        type: integer
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - description: payUid字段
+        in: query
+        name: payUid
+        type: string
+      - description: 积分收益数
+        in: query
+        name: pointsAmount
+        type: integer
+      - description: pointsChg字段
+        in: query
+        name: pointsChg
+        type: integer
+      - description: pointsChgAfter字段
+        in: query
+        name: pointsChgAfter
+        type: integer
+      - description: pointsChgBefore字段
+        in: query
+        name: pointsChgBefore
+        type: integer
+      - description: 积分流水id
+        in: query
+        name: pointsFlowId
+        type: integer
+      - description: 兑换比例 10=10%
+        in: query
+        name: ratio
+        type: integer
+      - description: source字段
+        in: query
+        name: source
+        type: string
+      - description: sourceType字段
+        in: query
+        name: sourceType
+        type: string
+      - in: query
+        name: startCreatedAt
+        type: string
+      - description: status字段
+        in: query
+        name: status
+        type: integer
+      - description: subSource字段
+        in: query
+        name: subSource
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取anchorPointsFlows表列表
+      tags:
+      - AnchorPointsFlows
+  /anchorPointsFlows/updateAnchorPointsFlows:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 更新anchorPointsFlows表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/loomiadmin.AnchorPointsFlows'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新anchorPointsFlows表
+      tags:
+      - AnchorPointsFlows
   /api/createApi:
     post:
       consumes:
@@ -2375,8 +2722,7 @@ paths:
             - $ref: '#/definitions/response.Response'
             - properties:
                 data:
-                  items:
-                    type: object
+                  items: {}
                   type: array
                 msg:
                   type: string
@@ -2619,10 +2965,6 @@ paths:
         in: query
         name: ID
         type: integer
-      - description: 创建时间
-        in: query
-        name: createdAt
-        type: string
       - description: 客户名
         in: query
         name: customerName
@@ -2639,10 +2981,6 @@ paths:
         in: query
         name: sysUserId
         type: integer
-      - description: 更新时间
-        in: query
-        name: updatedAt
-        type: string
       produces:
       - application/json
       responses:
@@ -2787,6 +3125,334 @@ paths:
       summary: 发送邮件
       tags:
       - System
+  /exchangePointsOrder/createExchangePointsOrder:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token
+        in: header
+        name: x-token
+        type: string
+      - description: 创建exchangePointsOrder表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/loomiadmin.ExchangePointsOrder'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"创建成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 创建exchangePointsOrder表
+      tags:
+      - ExchangePointsOrder
+  /exchangePointsOrder/deleteExchangePointsOrder:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token
+        in: header
+        name: x-token
+        type: string
+      - description: 删除exchangePointsOrder表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/loomiadmin.ExchangePointsOrder'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 删除exchangePointsOrder表
+      tags:
+      - ExchangePointsOrder
+  /exchangePointsOrder/deleteExchangePointsOrderByIds:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token
+        in: header
+        name: x-token
+        type: string
+      - description: 批量删除exchangePointsOrder表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"批量删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 批量删除exchangePointsOrder表
+      tags:
+      - ExchangePointsOrder
+  /exchangePointsOrder/findExchangePointsOrder:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token
+        in: header
+        name: x-token
+        type: string
+      - description: 主键ID
+        in: query
+        name: ID
+        type: integer
+      - description: 用户名
+        in: query
+        name: accountName
+        type: string
+      - description: 银行账号、钱包、其他账户标识
+        in: query
+        name: accountNumber
+        type: string
+      - description: 变动的积分
+        in: query
+        name: addPoints
+        type: integer
+      - description: 兑换金额
+        in: query
+        name: amount
+        type: string
+      - description: 国家
+        in: query
+        name: countryName
+        type: string
+      - description: 币种
+        in: query
+        name: currency
+        type: string
+      - description: 描述
+        in: query
+        name: desc
+        type: string
+      - description: 额外信息汇总；
+        in: query
+        name: extInfo
+        type: string
+      - description: 主渠道
+        in: query
+        name: mainChannel
+        type: string
+      - description: 商户id
+        in: query
+        name: merchantId
+        type: string
+      - description: 审核人id
+        in: query
+        name: operatorId
+        type: integer
+      - description: 商户订单号
+        in: query
+        name: orderNo
+        type: string
+      - description: 修改后积分
+        in: query
+        name: pointsAfter
+        type: integer
+      - description: 修改前积分余额
+        in: query
+        name: pointsBefore
+        type: integer
+      - description: 积分流水id
+        in: query
+        name: pointsFlowId
+        type: integer
+      - description: 产品id
+        in: query
+        name: productId
+        type: integer
+      - description: 对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功
+        in: query
+        name: status
+        type: integer
+      - description: 子渠道; bank_code
+        in: query
+        name: subChannel
+        type: string
+      - description: 用户uid
+        in: query
+        name: uid
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"查询成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用id查询exchangePointsOrder表
+      tags:
+      - ExchangePointsOrder
+  /exchangePointsOrder/getExchangePointsOrderList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token
+        in: header
+        name: x-token
+        type: string
+      - description: 主键ID
+        in: query
+        name: ID
+        type: integer
+      - description: 用户名
+        in: query
+        name: accountName
+        type: string
+      - description: 银行账号、钱包、其他账户标识
+        in: query
+        name: accountNumber
+        type: string
+      - description: 变动的积分
+        in: query
+        name: addPoints
+        type: integer
+      - description: 兑换金额
+        in: query
+        name: amount
+        type: string
+      - description: 国家
+        in: query
+        name: countryName
+        type: string
+      - description: 币种
+        in: query
+        name: currency
+        type: string
+      - description: 描述
+        in: query
+        name: desc
+        type: string
+      - in: query
+        name: endCreatedAt
+        type: string
+      - description: 额外信息汇总；
+        in: query
+        name: extInfo
+        type: string
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      - description: 主渠道
+        in: query
+        name: mainChannel
+        type: string
+      - description: 商户id
+        in: query
+        name: merchantId
+        type: string
+      - description: 审核人id
+        in: query
+        name: operatorId
+        type: integer
+      - description: 商户订单号
+        in: query
+        name: orderNo
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - description: 修改后积分
+        in: query
+        name: pointsAfter
+        type: integer
+      - description: 修改前积分余额
+        in: query
+        name: pointsBefore
+        type: integer
+      - description: 积分流水id
+        in: query
+        name: pointsFlowId
+        type: integer
+      - description: 产品id
+        in: query
+        name: productId
+        type: integer
+      - in: query
+        name: startCreatedAt
+        type: string
+      - description: 对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功
+        in: query
+        name: status
+        type: integer
+      - description: 子渠道; bank_code
+        in: query
+        name: subChannel
+        type: string
+      - description: 用户uid
+        in: query
+        name: uid
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取exchangePointsOrder表列表
+      tags:
+      - ExchangePointsOrder
+  /exchangePointsOrder/updateExchangePointsOrder:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: x-token
+        in: header
+        name: x-token
+        type: string
+      - description: 更新exchangePointsOrder表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/loomiadmin.ExchangePointsOrder'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新exchangePointsOrder表
+      tags:
+      - ExchangePointsOrder
   /fileUploadAndDownload/breakpointContinue:
     post:
       consumes:
@@ -3344,10 +4010,6 @@ paths:
         in: query
         name: ID
         type: integer
-      - description: 创建时间
-        in: query
-        name: createdAt
-        type: string
       - description: 描述
         in: query
         name: desc
@@ -3363,10 +4025,6 @@ paths:
       - description: 字典名（英）
         in: query
         name: type
-        type: string
-      - description: 更新时间
-        in: query
-        name: updatedAt
         type: string
       produces:
       - application/json
@@ -3504,10 +4162,6 @@ paths:
         in: query
         name: ID
         type: integer
-      - description: 创建时间
-        in: query
-        name: createdAt
-        type: string
       - description: 扩展值
         in: query
         name: extend
@@ -3528,10 +4182,6 @@ paths:
         in: query
         name: sysDictionaryID
         type: integer
-      - description: 更新时间
-        in: query
-        name: updatedAt
-        type: string
       - description: 字典值
         in: query
         name: value
@@ -3565,10 +4215,6 @@ paths:
         in: query
         name: ID
         type: integer
-      - description: 创建时间
-        in: query
-        name: createdAt
-        type: string
       - description: 扩展值
         in: query
         name: extend
@@ -3601,10 +4247,6 @@ paths:
         in: query
         name: sysDictionaryID
         type: integer
-      - description: 更新时间
-        in: query
-        name: updatedAt
-        type: string
       - description: 字典值
         in: query
         name: value
@@ -3656,6 +4298,202 @@ paths:
       summary: 更新SysDictionaryDetail
       tags:
       - SysDictionaryDetail
+  /sysExportTemplate/createSysExportTemplate:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建导出模板
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysExportTemplate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"创建成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 创建导出模板
+      tags:
+      - SysExportTemplate
+  /sysExportTemplate/deleteSysExportTemplate:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 删除导出模板
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysExportTemplate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 删除导出模板
+      tags:
+      - SysExportTemplate
+  /sysExportTemplate/deleteSysExportTemplateByIds:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 批量删除导出模板
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"批量删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 批量删除导出模板
+      tags:
+      - SysExportTemplate
+  /sysExportTemplate/exportExcel:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: 导出表格
+      tags:
+      - SysExportTemplate
+  /sysExportTemplate/findSysExportTemplate:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 主键ID
+        in: query
+        name: ID
+        type: integer
+      - description: 模板名称
+        in: query
+        name: name
+        type: string
+      - description: 表名称
+        in: query
+        name: tableName
+        type: string
+      - description: 模板标识
+        in: query
+        name: templateID
+        type: string
+      - description: 模板信息
+        in: query
+        name: templateInfo
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"查询成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用id查询导出模板
+      tags:
+      - SysExportTemplate
+  /sysExportTemplate/getSysExportTemplateList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 主键ID
+        in: query
+        name: ID
+        type: integer
+      - in: query
+        name: endCreatedAt
+        type: string
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      - description: 模板名称
+        in: query
+        name: name
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: startCreatedAt
+        type: string
+      - description: 表名称
+        in: query
+        name: tableName
+        type: string
+      - description: 模板标识
+        in: query
+        name: templateID
+        type: string
+      - description: 模板信息
+        in: query
+        name: templateInfo
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取导出模板列表
+      tags:
+      - SysExportTemplate
+  /sysExportTemplate/updateSysExportTemplate:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 更新导出模板
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysExportTemplate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新导出模板
+      tags:
+      - SysExportTemplate
   /sysOperationRecord/createSysOperationRecord:
     post:
       consumes:
@@ -3757,10 +4595,6 @@ paths:
         in: query
         name: body
         type: string
-      - description: 创建时间
-        in: query
-        name: createdAt
-        type: string
       - description: 错误信息
         in: query
         name: error_message
@@ -3789,10 +4623,6 @@ paths:
         in: query
         name: status
         type: integer
-      - description: 更新时间
-        in: query
-        name: updatedAt
-        type: string
       - description: 用户id
         in: query
         name: user_id
@@ -3834,10 +4664,6 @@ paths:
         in: query
         name: body
         type: string
-      - description: 创建时间
-        in: query
-        name: createdAt
-        type: string
       - description: 错误信息
         in: query
         name: error_message
@@ -3878,10 +4704,6 @@ paths:
         in: query
         name: status
         type: integer
-      - description: 更新时间
-        in: query
-        name: updatedAt
-        type: string
       - description: 用户id
         in: query
         name: user_id

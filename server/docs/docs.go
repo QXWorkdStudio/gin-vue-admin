@@ -15,6 +15,472 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/anchorPointsFlows/createAnchorPointsFlows": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AnchorPointsFlows"
+                ],
+                "summary": "创建anchorPointsFlows表",
+                "parameters": [
+                    {
+                        "description": "创建anchorPointsFlows表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loomiadmin.AnchorPointsFlows"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/anchorPointsFlows/deleteAnchorPointsFlows": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AnchorPointsFlows"
+                ],
+                "summary": "删除anchorPointsFlows表",
+                "parameters": [
+                    {
+                        "description": "删除anchorPointsFlows表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loomiadmin.AnchorPointsFlows"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/anchorPointsFlows/deleteAnchorPointsFlowsByIds": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AnchorPointsFlows"
+                ],
+                "summary": "批量删除anchorPointsFlows表",
+                "parameters": [
+                    {
+                        "description": "批量删除anchorPointsFlows表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.IdsReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/anchorPointsFlows/findAnchorPointsFlows": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AnchorPointsFlows"
+                ],
+                "summary": "用id查询anchorPointsFlows表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "主键ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "anchorUid字段",
+                        "name": "anchorUid",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "channelId字段",
+                        "name": "channelId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "用户消费金币",
+                        "name": "coin",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "eventId字段",
+                        "name": "eventId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "额外字段",
+                        "name": "ext",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "guildId字段",
+                        "name": "guildId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "num字段",
+                        "name": "num",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "payUid字段",
+                        "name": "payUid",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "积分收益数",
+                        "name": "pointsAmount",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pointsChg字段",
+                        "name": "pointsChg",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pointsChgAfter字段",
+                        "name": "pointsChgAfter",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pointsChgBefore字段",
+                        "name": "pointsChgBefore",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "积分流水id",
+                        "name": "pointsFlowId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "兑换比例 10=10%",
+                        "name": "ratio",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "source字段",
+                        "name": "source",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "sourceType字段",
+                        "name": "sourceType",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "status字段",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "subSource字段",
+                        "name": "subSource",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/anchorPointsFlows/getAnchorPointsFlowsList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AnchorPointsFlows"
+                ],
+                "summary": "分页获取anchorPointsFlows表列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "主键ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "anchorUid字段",
+                        "name": "anchorUid",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "channelId字段",
+                        "name": "channelId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "用户消费金币",
+                        "name": "coin",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "endCreatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "eventId字段",
+                        "name": "eventId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "额外字段",
+                        "name": "ext",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "guildId字段",
+                        "name": "guildId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "num字段",
+                        "name": "num",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页大小",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "payUid字段",
+                        "name": "payUid",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "积分收益数",
+                        "name": "pointsAmount",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pointsChg字段",
+                        "name": "pointsChg",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pointsChgAfter字段",
+                        "name": "pointsChgAfter",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pointsChgBefore字段",
+                        "name": "pointsChgBefore",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "积分流水id",
+                        "name": "pointsFlowId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "兑换比例 10=10%",
+                        "name": "ratio",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "source字段",
+                        "name": "source",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "sourceType字段",
+                        "name": "sourceType",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "startCreatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "status字段",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "subSource字段",
+                        "name": "subSource",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/anchorPointsFlows/updateAnchorPointsFlows": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "AnchorPointsFlows"
+                ],
+                "summary": "更新anchorPointsFlows表",
+                "parameters": [
+                    {
+                        "description": "更新anchorPointsFlows表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loomiadmin.AnchorPointsFlows"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/createApi": {
             "post": {
                 "security": [
@@ -1416,9 +1882,7 @@ const docTemplate = `{
                                     "properties": {
                                         "data": {
                                             "type": "array",
-                                            "items": {
-                                                "type": "object"
-                                            }
+                                            "items": {}
                                         },
                                         "msg": {
                                             "type": "string"
@@ -1805,12 +2269,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "创建时间",
-                        "name": "createdAt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
                         "description": "客户名",
                         "name": "customerName",
                         "in": "query"
@@ -1831,12 +2289,6 @@ const docTemplate = `{
                         "type": "integer",
                         "description": "管理ID",
                         "name": "sysUserId",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "更新时间",
-                        "name": "updatedAt",
                         "in": "query"
                     }
                 ],
@@ -2123,6 +2575,520 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"发送成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangePointsOrder/createExchangePointsOrder": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExchangePointsOrder"
+                ],
+                "summary": "创建exchangePointsOrder表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token",
+                        "name": "x-token",
+                        "in": "header"
+                    },
+                    {
+                        "description": "创建exchangePointsOrder表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loomiadmin.ExchangePointsOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangePointsOrder/deleteExchangePointsOrder": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExchangePointsOrder"
+                ],
+                "summary": "删除exchangePointsOrder表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token",
+                        "name": "x-token",
+                        "in": "header"
+                    },
+                    {
+                        "description": "删除exchangePointsOrder表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loomiadmin.ExchangePointsOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangePointsOrder/deleteExchangePointsOrderByIds": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExchangePointsOrder"
+                ],
+                "summary": "批量删除exchangePointsOrder表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token",
+                        "name": "x-token",
+                        "in": "header"
+                    },
+                    {
+                        "description": "批量删除exchangePointsOrder表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.IdsReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangePointsOrder/findExchangePointsOrder": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExchangePointsOrder"
+                ],
+                "summary": "用id查询exchangePointsOrder表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token",
+                        "name": "x-token",
+                        "in": "header"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "主键ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户名",
+                        "name": "accountName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "银行账号、钱包、其他账户标识",
+                        "name": "accountNumber",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "变动的积分",
+                        "name": "addPoints",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "兑换金额",
+                        "name": "amount",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "国家",
+                        "name": "countryName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "币种",
+                        "name": "currency",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "描述",
+                        "name": "desc",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "额外信息汇总；",
+                        "name": "extInfo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "主渠道",
+                        "name": "mainChannel",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "商户id",
+                        "name": "merchantId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "审核人id",
+                        "name": "operatorId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "商户订单号",
+                        "name": "orderNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "修改后积分",
+                        "name": "pointsAfter",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "修改前积分余额",
+                        "name": "pointsBefore",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "积分流水id",
+                        "name": "pointsFlowId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "产品id",
+                        "name": "productId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "子渠道; bank_code",
+                        "name": "subChannel",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户uid",
+                        "name": "uid",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangePointsOrder/getExchangePointsOrderList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExchangePointsOrder"
+                ],
+                "summary": "分页获取exchangePointsOrder表列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token",
+                        "name": "x-token",
+                        "in": "header"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "主键ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户名",
+                        "name": "accountName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "银行账号、钱包、其他账户标识",
+                        "name": "accountNumber",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "变动的积分",
+                        "name": "addPoints",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "兑换金额",
+                        "name": "amount",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "国家",
+                        "name": "countryName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "币种",
+                        "name": "currency",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "描述",
+                        "name": "desc",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "endCreatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "额外信息汇总；",
+                        "name": "extInfo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "主渠道",
+                        "name": "mainChannel",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "商户id",
+                        "name": "merchantId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "审核人id",
+                        "name": "operatorId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "商户订单号",
+                        "name": "orderNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页大小",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "修改后积分",
+                        "name": "pointsAfter",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "修改前积分余额",
+                        "name": "pointsBefore",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "积分流水id",
+                        "name": "pointsFlowId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "产品id",
+                        "name": "productId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "startCreatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "子渠道; bank_code",
+                        "name": "subChannel",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户uid",
+                        "name": "uid",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangePointsOrder/updateExchangePointsOrder": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ExchangePointsOrder"
+                ],
+                "summary": "更新exchangePointsOrder表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x-token",
+                        "name": "x-token",
+                        "in": "header"
+                    },
+                    {
+                        "description": "更新exchangePointsOrder表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loomiadmin.ExchangePointsOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -3130,12 +4096,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "创建时间",
-                        "name": "createdAt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
                         "description": "描述",
                         "name": "desc",
                         "in": "query"
@@ -3156,12 +4116,6 @@ const docTemplate = `{
                         "type": "string",
                         "description": "字典名（英）",
                         "name": "type",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "更新时间",
-                        "name": "updatedAt",
                         "in": "query"
                     }
                 ],
@@ -3409,12 +4363,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "创建时间",
-                        "name": "createdAt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
                         "description": "扩展值",
                         "name": "extend",
                         "in": "query"
@@ -3441,12 +4389,6 @@ const docTemplate = `{
                         "type": "integer",
                         "description": "关联标记",
                         "name": "sysDictionaryID",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "更新时间",
-                        "name": "updatedAt",
                         "in": "query"
                     },
                     {
@@ -3508,12 +4450,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "创建时间",
-                        "name": "createdAt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
                         "description": "扩展值",
                         "name": "extend",
                         "in": "query"
@@ -3558,12 +4494,6 @@ const docTemplate = `{
                         "type": "integer",
                         "description": "关联标记",
                         "name": "sysDictionaryID",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "更新时间",
-                        "name": "updatedAt",
                         "in": "query"
                     },
                     {
@@ -3643,6 +4573,324 @@ const docTemplate = `{
                                     }
                                 }
                             ]
+                        }
+                    }
+                }
+            }
+        },
+        "/sysExportTemplate/createSysExportTemplate": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "创建导出模板",
+                "parameters": [
+                    {
+                        "description": "创建导出模板",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/system.SysExportTemplate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysExportTemplate/deleteSysExportTemplate": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "删除导出模板",
+                "parameters": [
+                    {
+                        "description": "删除导出模板",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/system.SysExportTemplate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysExportTemplate/deleteSysExportTemplateByIds": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "批量删除导出模板",
+                "parameters": [
+                    {
+                        "description": "批量删除导出模板",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.IdsReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysExportTemplate/exportExcel": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "导出表格",
+                "responses": {}
+            }
+        },
+        "/sysExportTemplate/findSysExportTemplate": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "用id查询导出模板",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "主键ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "模板名称",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "表名称",
+                        "name": "tableName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "模板标识",
+                        "name": "templateID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "模板信息",
+                        "name": "templateInfo",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysExportTemplate/getSysExportTemplateList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "分页获取导出模板列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "主键ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "endCreatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "模板名称",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页大小",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "startCreatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "表名称",
+                        "name": "tableName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "模板标识",
+                        "name": "templateID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "模板信息",
+                        "name": "templateInfo",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysExportTemplate/updateSysExportTemplate": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "SysExportTemplate"
+                ],
+                "summary": "更新导出模板",
+                "parameters": [
+                    {
+                        "description": "更新导出模板",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/system.SysExportTemplate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 }
@@ -3836,12 +5084,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "创建时间",
-                        "name": "createdAt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
                         "description": "错误信息",
                         "name": "error_message",
                         "in": "query"
@@ -3880,12 +5122,6 @@ const docTemplate = `{
                         "type": "integer",
                         "description": "请求状态",
                         "name": "status",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "更新时间",
-                        "name": "updatedAt",
                         "in": "query"
                     },
                     {
@@ -3959,12 +5195,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "创建时间",
-                        "name": "createdAt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
                         "description": "错误信息",
                         "name": "error_message",
                         "in": "query"
@@ -4021,12 +5251,6 @@ const docTemplate = `{
                         "type": "integer",
                         "description": "请求状态",
                         "name": "status",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "更新时间",
-                        "name": "updatedAt",
                         "in": "query"
                     },
                     {
@@ -5602,10 +6826,6 @@ const docTemplate = `{
                     "description": "主键ID",
                     "type": "integer"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "customerName": {
                     "description": "客户名",
                     "type": "string"
@@ -5629,10 +6849,6 @@ const docTemplate = `{
                 "sysUserId": {
                     "description": "管理ID",
                     "type": "integer"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 }
             }
         },
@@ -5645,10 +6861,6 @@ const docTemplate = `{
                 },
                 "chunkTotal": {
                     "type": "integer"
-                },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
                 },
                 "exaFileChunk": {
                     "type": "array",
@@ -5667,10 +6879,6 @@ const docTemplate = `{
                 },
                 "isFinish": {
                     "type": "boolean"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 }
             }
         },
@@ -5681,10 +6889,6 @@ const docTemplate = `{
                     "description": "主键ID",
                     "type": "integer"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "exaFileID": {
                     "type": "integer"
                 },
@@ -5692,10 +6896,6 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "fileChunkPath": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 }
             }
@@ -5707,10 +6907,6 @@ const docTemplate = `{
                     "description": "主键ID",
                     "type": "integer"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "key": {
                     "description": "编号",
                     "type": "string"
@@ -5721,10 +6917,6 @@ const docTemplate = `{
                 },
                 "tag": {
                     "description": "文件标签",
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 },
                 "url": {
@@ -5762,6 +6954,172 @@ const docTemplate = `{
                 },
                 "to": {
                     "description": "收件人:多个以英文逗号分隔 例：a@qq.com b@qq.com 正式开发中请把此项目作为参数使用",
+                    "type": "string"
+                }
+            }
+        },
+        "loomiadmin.AnchorPointsFlows": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "description": "主键ID",
+                    "type": "integer"
+                },
+                "anchorUid": {
+                    "description": "anchorUid字段",
+                    "type": "string"
+                },
+                "channelId": {
+                    "description": "channelId字段",
+                    "type": "string"
+                },
+                "coin": {
+                    "description": "用户消费金币",
+                    "type": "integer"
+                },
+                "eventId": {
+                    "description": "eventId字段",
+                    "type": "string"
+                },
+                "ext": {
+                    "description": "额外字段",
+                    "type": "string"
+                },
+                "guildId": {
+                    "description": "guildId字段",
+                    "type": "string"
+                },
+                "num": {
+                    "description": "num字段",
+                    "type": "integer"
+                },
+                "payUid": {
+                    "description": "payUid字段",
+                    "type": "string"
+                },
+                "pointsAmount": {
+                    "description": "积分收益数",
+                    "type": "integer"
+                },
+                "pointsChg": {
+                    "description": "pointsChg字段",
+                    "type": "integer"
+                },
+                "pointsChgAfter": {
+                    "description": "pointsChgAfter字段",
+                    "type": "integer"
+                },
+                "pointsChgBefore": {
+                    "description": "pointsChgBefore字段",
+                    "type": "integer"
+                },
+                "pointsFlowId": {
+                    "description": "积分流水id",
+                    "type": "integer"
+                },
+                "ratio": {
+                    "description": "兑换比例 10=10%",
+                    "type": "integer"
+                },
+                "source": {
+                    "description": "source字段",
+                    "type": "string"
+                },
+                "sourceType": {
+                    "description": "sourceType字段",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "status字段",
+                    "type": "integer"
+                },
+                "subSource": {
+                    "description": "subSource字段",
+                    "type": "string"
+                }
+            }
+        },
+        "loomiadmin.ExchangePointsOrder": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "description": "主键ID",
+                    "type": "integer"
+                },
+                "accountName": {
+                    "description": "用户名",
+                    "type": "string"
+                },
+                "accountNumber": {
+                    "description": "银行账号、钱包、其他账户标识",
+                    "type": "string"
+                },
+                "addPoints": {
+                    "description": "变动的积分",
+                    "type": "integer"
+                },
+                "amount": {
+                    "description": "兑换金额",
+                    "type": "string"
+                },
+                "countryName": {
+                    "description": "国家",
+                    "type": "string"
+                },
+                "currency": {
+                    "description": "币种",
+                    "type": "string"
+                },
+                "desc": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "extInfo": {
+                    "description": "额外信息汇总；",
+                    "type": "string"
+                },
+                "mainChannel": {
+                    "description": "主渠道",
+                    "type": "string"
+                },
+                "merchantId": {
+                    "description": "商户id",
+                    "type": "string"
+                },
+                "operatorId": {
+                    "description": "审核人id",
+                    "type": "integer"
+                },
+                "orderNo": {
+                    "description": "商户订单号",
+                    "type": "string"
+                },
+                "pointsAfter": {
+                    "description": "修改后积分",
+                    "type": "integer"
+                },
+                "pointsBefore": {
+                    "description": "修改前积分余额",
+                    "type": "integer"
+                },
+                "pointsFlowId": {
+                    "description": "积分流水id",
+                    "type": "integer"
+                },
+                "productId": {
+                    "description": "产品id",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "对应订单状态 提现状态 1:待处理 2:待打款 10:打款失败 11:后台拒绝 21:成功",
+                    "type": "integer"
+                },
+                "subChannel": {
+                    "description": "子渠道; bank_code",
+                    "type": "string"
+                },
+                "uid": {
+                    "description": "用户uid",
                     "type": "string"
                 }
             }
@@ -5993,10 +7351,6 @@ const docTemplate = `{
                     "description": "api组",
                     "type": "string"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "desc": {
                     "description": "排序方式:升序false(默认)|降序true",
                     "type": "boolean"
@@ -6027,10 +7381,6 @@ const docTemplate = `{
                 },
                 "path": {
                     "description": "api路径",
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 }
             }
@@ -6460,10 +7810,6 @@ const docTemplate = `{
                     "description": "api组",
                     "type": "string"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "description": {
                     "description": "api中文描述",
                     "type": "string"
@@ -6474,10 +7820,6 @@ const docTemplate = `{
                 },
                 "path": {
                     "description": "api路径",
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 }
             }
@@ -6539,10 +7881,6 @@ const docTemplate = `{
                     "description": "主键ID",
                     "type": "integer"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "desc": {
                     "type": "string"
                 },
@@ -6550,10 +7888,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "packageName": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 }
             }
@@ -6579,10 +7913,6 @@ const docTemplate = `{
                 },
                 "component": {
                     "description": "对应前端文件路径",
-                    "type": "string"
-                },
-                "createdAt": {
-                    "description": "创建时间",
                     "type": "string"
                 },
                 "hidden": {
@@ -6624,10 +7954,6 @@ const docTemplate = `{
                 "sort": {
                     "description": "排序标记",
                     "type": "integer"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 }
             }
         },
@@ -6638,10 +7964,6 @@ const docTemplate = `{
                     "description": "主键ID",
                     "type": "integer"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "desc": {
                     "type": "string"
                 },
@@ -6650,10 +7972,6 @@ const docTemplate = `{
                 },
                 "sysBaseMenuID": {
                     "type": "integer"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 }
             }
         },
@@ -6664,10 +7982,6 @@ const docTemplate = `{
                     "description": "主键ID",
                     "type": "integer"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "key": {
                     "description": "地址栏携带参数的key",
                     "type": "string"
@@ -6677,10 +7991,6 @@ const docTemplate = `{
                 },
                 "type": {
                     "description": "地址栏携带参数为params还是query",
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 },
                 "value": {
@@ -6695,10 +8005,6 @@ const docTemplate = `{
                 "ID": {
                     "description": "主键ID",
                     "type": "integer"
-                },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
                 },
                 "desc": {
                     "description": "描述",
@@ -6721,10 +8027,6 @@ const docTemplate = `{
                 "type": {
                     "description": "字典名（英）",
                     "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 }
             }
         },
@@ -6734,10 +8036,6 @@ const docTemplate = `{
                 "ID": {
                     "description": "主键ID",
                     "type": "integer"
-                },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
                 },
                 "extend": {
                     "description": "扩展值",
@@ -6759,13 +8057,34 @@ const docTemplate = `{
                     "description": "关联标记",
                     "type": "integer"
                 },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
-                },
                 "value": {
                     "description": "字典值",
                     "type": "integer"
+                }
+            }
+        },
+        "system.SysExportTemplate": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "description": "主键ID",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "模板名称",
+                    "type": "string"
+                },
+                "tableName": {
+                    "description": "表名称",
+                    "type": "string"
+                },
+                "templateID": {
+                    "description": "模板标识",
+                    "type": "string"
+                },
+                "templateInfo": {
+                    "description": "模板信息",
+                    "type": "string"
                 }
             }
         },
@@ -6796,10 +8115,6 @@ const docTemplate = `{
                 },
                 "component": {
                     "description": "对应前端文件路径",
-                    "type": "string"
-                },
-                "createdAt": {
-                    "description": "创建时间",
                     "type": "string"
                 },
                 "hidden": {
@@ -6844,10 +8159,6 @@ const docTemplate = `{
                 "sort": {
                     "description": "排序标记",
                     "type": "integer"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 }
             }
         },
@@ -6864,10 +8175,6 @@ const docTemplate = `{
                 },
                 "body": {
                     "description": "请求Body",
-                    "type": "string"
-                },
-                "createdAt": {
-                    "description": "创建时间",
                     "type": "string"
                 },
                 "error_message": {
@@ -6897,10 +8204,6 @@ const docTemplate = `{
                 "status": {
                     "description": "请求状态",
                     "type": "integer"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
-                    "type": "string"
                 },
                 "user": {
                     "$ref": "#/definitions/system.SysUser"
@@ -6939,10 +8242,6 @@ const docTemplate = `{
                     "description": "基础颜色",
                     "type": "string"
                 },
-                "createdAt": {
-                    "description": "创建时间",
-                    "type": "string"
-                },
                 "email": {
                     "description": "用户邮箱",
                     "type": "string"
@@ -6965,10 +8264,6 @@ const docTemplate = `{
                 },
                 "sideMode": {
                     "description": "用户侧边主题",
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "description": "更新时间",
                     "type": "string"
                 },
                 "userName": {

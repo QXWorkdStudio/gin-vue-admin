@@ -366,3 +366,33 @@ fmt.Println(decodeBytes, err)
 ## 10. 商用注意事项
 
 如果您将此项目用于商业用途，请遵守Apache2.0协议并保留作者技术支持声明。
+
+
+curl -X 'PUT' \
+  'http://localhost:8888/exchangePointsOrder/updateExchangePointsOrder' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "ID": 10,
+                "CreatedAt": "2026-02-07T12:06:37.965+08:00",
+                "UpdatedAt": "2026-02-07T12:06:42.697+08:00",
+                "accountName": "aaa",
+                "accountNumber": "171234567",
+                "addPoints": -100,
+                "amount": "65",
+                "countryName": "PH",
+                "currency": "PHP",
+                "desc": "Test",
+                "extInfo": null,
+                "mainChannel": "tikipay",
+                "merchantId": "8890273531",
+                "operatorId": null,
+                "orderNo": "",
+                "pointsAfter": 1089905,
+                "pointsBefore": 1090005,
+                "pointsFlowId": 11737169,
+                "productId": 2375,
+                "status": 2,
+                "subChannel": "PH_GCASH",
+                "uid": "1781067"
+}'

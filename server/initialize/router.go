@@ -85,6 +85,7 @@ func Routers() *gin.Engine {
 	{
 		loomiadminRouter := router.RouterGroupApp.Loomiadmin
 		loomiadminRouter.InitExchangePointsOrderRouter(PrivateGroup)
+		loomiadminRouter.InitAnchorPointsFlowsRouter(PrivateGroup)
 	}
 
 	global.GVA_LOG.Info("router register success")

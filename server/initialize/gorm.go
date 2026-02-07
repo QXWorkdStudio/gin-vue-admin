@@ -60,5 +60,5 @@ func RegisterTables() {
 		os.Exit(0)
 	}
 	global.GVA_LOG.Info("register table success")
-	loomi.AutoMigrate(loomiadmin.ExchangePointsOrder{})
+	loomi.AutoMigrate(loomiadmin.ExchangePointsOrder{}, loomiadmin.AnchorPointsFlows{})
 }
